@@ -27,9 +27,11 @@ router.route('/:id/picture')
                 })
             } else {
                 let picture = req.files.picture;
+
                 let filename = './uploads/' + req.params.id + '.jpg';
                 picture.mv(filename);
                 console.log('saved the picture to: ' + filename)
+
                 res.send(
                     {
                         status: true,
@@ -40,11 +42,13 @@ router.route('/:id/picture')
                         }
                     }
                 )
+
             }
         } catch (err) {
             res.sendStatus(500).send(err)
         }
     })
+
 
 
 
