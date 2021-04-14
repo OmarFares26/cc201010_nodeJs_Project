@@ -50,6 +50,20 @@ router.route('/:id/picture')
     })
 
 
+let userDetails = {};
+
+router.route('/:id/details')
+    .get((req, res) => {
+        //res.send('Get request for user' + req.params.id + 'details')
+        res.json(userDetails);
+    })
+    .post((req, res) =>{
+        console.log(req.body);
+        userDetails = req.body;
+        res.send('hello from Tony and this is the Post request')
+    })
+
+
 
 
 router.get('/:id' , (req,res)=> {
