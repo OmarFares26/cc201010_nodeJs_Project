@@ -1,10 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
-router.get('/', (req,res) => {
+
+
+const userController = require('../controllers/userController')
+
+router.get('/', userController.getUsers)
+router.get('/:id', userController.getUser)
+
+/*router.get('/', (req,res) => {
 
     res.send('Hallo world  from users!');
 });
+*/
 
 
 //let userDetails = {};
@@ -66,10 +73,10 @@ router.route('/:id/details')
 
 
 
-router.get('/:id' , (req,res)=> {
+/*router.get('/:id' , (req,res)=> {
     console.log(req.params)
     res.send('Got request for user id ' + req.params.id)
-})
+})*/
 
 
 module.exports = router;

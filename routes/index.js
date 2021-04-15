@@ -3,7 +3,8 @@ const router = express.Router();
 
 router.get('/', (req,res) => {
 
-    res.send('Hallo world!');
+    // res.send('Hallo world!');
+    res.render('index' , {title :'Express'})
 });
 
 
@@ -35,6 +36,24 @@ router.get('/example/d',[cbC1,cbC2] , function (req,res){
     console.log('this function we wrote ourselves')
     res.send('hello from example D')
 })
+
+
+router.get('/cookies', (req, res) => {
+// Read cookies
+    let counter = req.cookies['visitCounter'];
+    console.log("Current counter value: " + counter);
+    if (isNaN(counter)) { //error check
+        counter = 0;
+    }
+
+    counter ++;
+    console.log("New counter value: " + counter);
+// Set cookie
+    res.cookie('visitCounter', counter , {maxAge: 2*60*60*1000});
+    res.send('Cookie was set to ' + counter);
+});
+
+
 
 
 module.exports = router;
