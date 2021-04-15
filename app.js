@@ -4,6 +4,14 @@ const port = 3000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const fileUpload = require('express-fileupload');
+const cookieParser = require('cookie-parser');
+const path = require('path');
+const ejs = require('ejs');
+
+app.set('views',path.join(__dirname,'views'))
+app.set('view engine', 'ejs');
+
+app.use(cookieParser())
 
 app.use(cors())
 app.use(fileUpload({createParentPath: true}))
@@ -18,6 +26,9 @@ app.use('/', indexRouter)
 
 const usersRouter = require('./routes/users')
 app.use('/users',usersRouter)
+
+
+
 
 
 app.get('/', (req, res) => {

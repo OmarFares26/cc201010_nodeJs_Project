@@ -1,13 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const path = require('path');
 
 
-router.get('/', (req, res) => {
-    res.send('Hello World from the users router!');
+const userController = require('../controllers/userController')
+
+router.get('/', userController.getUsers)
+router.get('/:id', userController.getUser)
+
+/*router.get('/', (req,res) => {
+
+    res.send('Hallo world  from users!');
 });
+*/
 
 
+//let userDetails = {};
 
 router.route('/:id/picture')
     .get((req,res) => {
@@ -51,22 +58,25 @@ router.route('/:id/picture')
 
 
 let userDetails = {};
-router.route('/details')
-    .get((req,res) => {
-        //res.send('Get request for user ' + req.params.id + 'details')
+
+router.route('/:id/details')
+    .get((req, res) => {
+        //res.send('Get request for user' + req.params.id + 'details')
         res.json(userDetails);
     })
-    .post((req,res) => {
+    .post((req, res) =>{
         console.log(req.body);
         userDetails = req.body;
-        res.send('Hello form tony and this is Post request')
+        res.send('hello from Tony and this is the Post request')
     })
 
-router.get('/:id' , (req,res)=> {
+
+
+
+/*router.get('/:id' , (req,res)=> {
     console.log(req.params)
     res.send('Got request for user id ' + req.params.id)
-})
-
+})*/
 
 
 module.exports = router;
