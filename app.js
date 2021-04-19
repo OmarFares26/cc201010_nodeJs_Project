@@ -12,6 +12,10 @@ const ejs = require('ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+// telling the express module that the public  directory has all of our site assets
+app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
+
 
 app.use(cookieParser())
 
