@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Information</title>
+    <link rel="stylesheet" href='/stylesheets/Users.css'/>
+</head>
+<body>
+<h1>HALLO FROM USERS PAGE</h1>
+
+
+
+       <div>
+           <h2>User Information  </h2>
+
+
+        <ul class="labels">
+    <li>#ID</li>
+    <li>NAME</li>
+    <li>SURNAME</li>
+    <li>HERO</li>
+
+
+        </ul>
+        <% for (let i = 0; i < users.length; i++) { %>
+        <ul class="data">
+        <li><%= users[i].id %></li>
+        <li><%= users[i].name %></li>
+        <li><%= users[i].surname %></li>
+        <li><%= users[i].hero %></li>
+        </ul>
+
+
+<% } %>
+
+</div>
+
+
+</body>
+</html>
