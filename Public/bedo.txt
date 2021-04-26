@@ -1,1 +1,1 @@
-Hallo from puplic file
+Hallo from public file.
