@@ -7,9 +7,17 @@ const fileUpload = require('express-fileupload');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const ejs = require('ejs');
+//const db = require('./services/database.js');
 
-app.set('views',path.join(__dirname,'views'))
+
+
+
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
+
+// telling the express module that the public  directory has all of our site assets
+app.use(express.static(__dirname + '/public'));
+app.use(express.static('public'));
 
 app.use(cookieParser())
 
@@ -17,18 +25,14 @@ app.use(cors())
 app.use(fileUpload({createParentPath: true}))
 
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended:true}))
-
+app.use(bodyParser.urlencoded({extended: true}))
 
 
 const indexRouter = require('./routes/index')
 app.use('/', indexRouter)
 
 const usersRouter = require('./routes/users')
-app.use('/users',usersRouter)
-
-
-
+app.use('/users', usersRouter)
 
 
 app.get('/', (req, res) => {
