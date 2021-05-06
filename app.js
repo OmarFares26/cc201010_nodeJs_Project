@@ -1,16 +1,20 @@
-const express = require('express');
-const app = express();
+const express = require('express')
+const app = express()
 const port = 3000;
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const fileUpload = require('express-fileupload');
-const cookieParser = require('cookie-parser');
-const path = require('path');
-const ejs = require('ejs');
+const bodyParser = require('body-parser')
+const cors = require('cors')
+const fileUpload = require('express-fileupload')
+const cookieParser = require('cookie-parser')
+const path = require('path')
+const ejs = require('ejs')
+const db = require('./services/database.js');
+
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
 
 // telling the express module that the public  directory has all of our site assets
 app.use(express.static(__dirname + '/public'));
@@ -27,6 +31,8 @@ app.use(fileUpload({
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
+
+
 
 
 

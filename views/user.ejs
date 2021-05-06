@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <title>User Information</title>
-    <link rel="stylesheet" href='Users.css'>
+    <link rel="stylesheet" href='/User.css'>
 </head>
 <body>
 <!--<h1>HALLO FROM USERS PAGE</h1>-->
@@ -10,7 +10,6 @@
 
 <div>
     <h2>User Information </h2>
-
 
     <ul class="labels">
         <li>#ID</li>
@@ -22,20 +21,14 @@
     </ul>
 
 
-    <% for (let i = 0; i < users.length; i++) { %>
         <ul class="data">
-            <li><%= users[i].Id %></li>
-            <li><%= users[i].Name %></li>
-            <li><%= users[i].surname %></li>
-            <li><%= users[i].hero %></li>
-            <li><%= users[i].Email %></li>
-            <li><%= users[i].Info %></li>
+            <li><%= user.Id %></li>
+            <li><%= user.Name %></li>
+            <li><%= user.surname %></li>
+            <li><%= user.hero %></li>
+            <li><%= user.Email %></li>
+            <li><%= user.Info %></li>
         </ul>
 
-    <% } %>
 
 </div>
-
-
-</body>
-</html>
