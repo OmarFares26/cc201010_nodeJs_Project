@@ -12,17 +12,14 @@ body{
     margin: 0 auto;
     min-height: 100%;
     text-align: center;
-    width: 1000px;
+    width: 1300px;
     /* border: 1px solid black;*/
-}
-h1{
-    font-size: 50px;
 }
 
 div{
     margin: 0;
     padding: 0;
-    border: 1px solid gray;
+    /*border: 1px solid gray;*/
     width: 100%;
     background: snow;
     /*background: red;*/
@@ -34,8 +31,8 @@ h2{
     text-align: center;
     font-size: 40px;
     color: white;
-    border: 1px solid cornflowerblue;
-    width: 99.9%;
+    /*border: 1px solid cornflowerblue;*/
+    width: 100%;
     margin-top:0;
     margin-bottom: 0;
     padding: 8px 0;
