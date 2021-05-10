@@ -1,6 +1,6 @@
 const userModel = require("../models/userModel");
 
-
+//comment when moving to lecture 5 stuff
 //menu controller takes the request, response and next object
 // function getUsers(req, res, next) {
 //     const users = userModel.getUsers();
