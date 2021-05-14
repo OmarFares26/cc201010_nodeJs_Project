@@ -1,11 +1,12 @@
 const express = require('express');
 const router = express.Router();
-
-
 const userController = require('../controllers/userController')
 
 router.get('/', userController.getUsers)
 router.get('/:id', userController.getUser)
+
+router.get('/:id/edit', userController.editUser)
+router.post('/:id', userController.updateUser)
 
 /*router.get('/', (req,res) => {
 
@@ -17,7 +18,7 @@ router.get('/:id', userController.getUser)
 //let userDetails = {};
 
 router.route('/:id/picture')
-    .get((req,res) => {
+    .get((req, res) => {
         let uID = req.params.id;
         const filename = uID + '.jpg';
         const options = {
@@ -25,9 +26,9 @@ router.route('/:id/picture')
         }
         res.sendfile(filename, options);
     })
-    .post((req,res) => {
-        try{
-            if (!req.files){
+    .post((req, res) => {
+        try {
+            if (!req.files) {
                 res.send({
                     status: false,
                     message: 'no file has been uploaded'
@@ -64,13 +65,11 @@ router.route('/:id/details')
         //res.send('Get request for user' + req.params.id + 'details')
         res.json(userDetails);
     })
-    .post((req, res) =>{
+    .post((req, res) => {
         console.log(req.body);
         userDetails = req.body;
         res.send('hello from Tony and this is the Post request')
     })
-
-
 
 
 /*router.get('/:id' , (req,res)=> {

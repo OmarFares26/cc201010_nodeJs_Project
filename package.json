@@ -23,6 +23,7 @@
     "express-fileupload": "^1.2.1",
     "http": "0.0.1-security",
     "mysql": "^2.18.1",
-    "parser": "^0.1.4"
+    "parser": "^0.1.4",
+    "ws": "^7.4.5"
   }
 }

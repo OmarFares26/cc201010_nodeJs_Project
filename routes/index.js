@@ -7,6 +7,9 @@ router.get('/', (req,res) => {
     res.render('index' , {title :'Express'})
 });
 
+router.get('/chat', (req, res) => {
+    res.render('chat')
+})
 
 router.get('/example/b', function (req,res,next){
     console.log('the response will be sent by next function')

@@ -7,7 +7,8 @@ const fileUpload = require('express-fileupload')
 const cookieParser = require('cookie-parser')
 const path = require('path')
 const ejs = require('ejs')
-const db = require('./services/database.js');
+const db = require('./services/database.js')
+const ws = require('./services/webSockets')
 
 
 
@@ -50,6 +51,10 @@ app.use('/users', usersRouter);
 
 
 
+
+app.get('/', (req, res) => {
+ res.send('Hello World!');
+});
 
 app.listen(port, () => {
     console.log(`Example app listening at

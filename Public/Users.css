@@ -5,12 +5,7 @@ html{
     width: 100%;
     align-items : center;
     height: 100%;
-/*
-    /* This is what makes the background image rescale based
-    on the container's size */
-    /*background-size: cover;*/
-    /* Location of the image */
-    /*background-image:url('images/Beach.jpg') ;*/
+
 }
 
 body{
@@ -24,6 +19,7 @@ body{
     width: 1300px;
     /* border: 1px solid black;*/
 }
+
 image{
     width: 600px;
 }

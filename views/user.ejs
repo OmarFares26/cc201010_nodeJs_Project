@@ -21,14 +21,15 @@
     </ul>
 
 
-        <ul class="data">
-            <li><%= user.Id %></li>
-            <li><%= user.Name %></li>
-            <li><%= user.surname %></li>
-            <li><%= user.hero %></li>
-            <li><%= user.Email %></li>
-            <li><%= user.Info %></li>
-        </ul>
+    <ul class="data">
+        <% Object.keys(user).forEach(function (key) { %>
+        <li class="trail"> <%= user[key] %></li>
+            <% }) %>
+    </ul>
 
 
 </div>
+
+</body>
+
+</html>

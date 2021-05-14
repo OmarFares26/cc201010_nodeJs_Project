@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        /*const ws = new WebSocket('ws://localhost:8080');*/
+        const ws = new WebSocket('ws://192.168.1.4:8080');
+
+        ws.onopen = function () {
+            console.log('Websocket is connected ...')
+            ws.send('connected')
+        }
+
+        ws.onmessage = function (ev) {
+            console.log(ev);
+            addTextMessage(ev.data);
+        }
+
+        function sendMyMessage() {
+            let text = document.getElementById("text").value;
+            ws.send(text);
+        }
+
+        function addTextMessage(message){
+            let tag = document.createElement("p");
+            let text = document.createTextNode(message);
+            tag.appendChild(text);
+            let element = document.getElementById("messages");
+            element.appendChild(tag);
+        }
+
+
+    </script>
+</head>
+<body>
+<h1>Chat view</h1>
+<div id="messages"></div>
+<input id="text" type="text"></input>
+<button onclick="sendMyMessage()">Send</button>
+</body>
+</html>
+
+
+
+
+
+
+
+

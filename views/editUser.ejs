@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>editUser</title>
+</head>
+<body>
+<h1>Creating a form</h1>
+
+<form action="/users/<%= user.id %>" method="post">
+    <% Object.keys(user).forEach(function (key) { %>
+        <%= key %>: <input type="text"
+                           name="<%= key %>"
+                           value="<%= user[key] %>"/><br><br>
+    <% }) %>
+    <input type="submit" value="accept"/>
+</form>
+
+</div>
+</body>
+</html>
