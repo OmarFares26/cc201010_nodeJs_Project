@@ -12,8 +12,10 @@ const ws = require('./services/webSockets')
 
 
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+
+
+
+app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'ejs');
 
 
@@ -21,14 +23,10 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'));
 
-
 app.use(cookieParser())
 
 app.use(cors())
-
-app.use(fileUpload({
-    createParentPath: true
-}))
+app.use(fileUpload({createParentPath: true}))
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
@@ -43,14 +41,17 @@ app.use(bodyParser.urlencoded({extended:true}))
   //  res.send('Hello World!');
 //});
 
-const indexRouter = require('./routes/index');
-app.use('/', indexRouter);
 
-const usersRouter = require('./routes/users');
-app.use('/users', usersRouter);
+const indexRouter = require('./routes/index')
+app.use('/', indexRouter)
+
+const usersRouter = require('./routes/users')
+app.use('/users', usersRouter)
 
 
-
+app.get('/', (req, res) => {
+    res.send('Hello World!')
+});
 
 app.get('/', (req, res) => {
  res.send('Hello World!');
@@ -59,4 +60,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening at
 http://localhost:${port}`);
-});
+})
