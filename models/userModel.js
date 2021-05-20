@@ -30,6 +30,8 @@ const db = require('../services/database.js').config;
 //     return users;
 // }
 
+
+
 function getUsers(cb) {
     db.query("SELECT * FROM users1", function (err, users, fields) {
         if (err) { cb(err) } //this is just for error handling
@@ -52,6 +54,17 @@ function getUser(cb,id) {
 
 }
 
+/*function postUser(cb , info) {
+    let sql = "insert into users1(name,surname,email,hero,info) values('"+ info.name +"','"+ info.surname +"','"+ info.email +"','"+ info.hero+"','"+ info.info +")";
+    db.query( sql, function (err, user, fields) {
+        if(err){
+
+            cb(err)
+        }
+    });
+
+}*/
+
 function updateUser(cb, userData) {
     //update table users1
     let sql = "UPDATE users1 SET" +
@@ -72,9 +85,12 @@ function updateUser(cb, userData) {
 }
 
 
+
+
 module.exports = {
     getUsers,
     getUser,
     updateUser
+
 }
 

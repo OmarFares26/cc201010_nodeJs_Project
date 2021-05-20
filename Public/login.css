@@ -1,0 +1,80 @@
+html{
+    max-height: 100vh;
+    background: #56baed;
+}
+
+body{
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    display: block;
+    color: grey;
+    margin: 0 auto;
+    margin-bottom: 20px;
+   /* border: 2px solid black;*/
+    text-align: center;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    padding: 30px;
+    width: 90%;
+    max-width:450px;
+    position: relative;
+    padding: 0px;
+    margin: 0 auto;
+    margin-top: 200px;
+    padding: 30px;
+    text-align: center;
+
+}
+#username,#password{
+    background-color: #f6f6f6;
+    border: none;
+    color: #0d0d0d;
+    outline: none;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 5px;
+    margin-bottom: 10px;
+    width: 65%;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px 5px 5px 5px;
+}
+#password{
+    margin-bottom: 20px;
+}
+
+#username:focus,#password:focus{
+    border: 1px solid dodgerblue;
+}
+
+#button,#button1{
+    background-color: #56baed;
+    border: none;
+    color: white;
+    padding: 15px 0px;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 13px;
+     /*margin: 5px 20px 20px 20px;*/
+    width: 200px;
+    border-radius: 5px 5px 5px 5px;
+    /*margin: 0 auto;*/
+    margin-bottom: 15px;
+
+}

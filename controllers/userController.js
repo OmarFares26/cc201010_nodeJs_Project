@@ -8,6 +8,7 @@ const userModel = require("../models/userModel");
 //     res.render('users', {users});
 // }
 
+
 //lecture 5
 function getUsers(req, res, next) {
     userModel.getUsers((err, users) => {
@@ -27,6 +28,9 @@ function getUser(req, res, next) {
     },req.params.id);
 }
 
+
+
+
 function editUser(req, res, next) {
     userModel.getUser((err, user)=>{
         if(err) {
@@ -35,6 +39,12 @@ function editUser(req, res, next) {
         res.render('editUser', {user})
     }, req.params.id)
 }
+
+function registerUser(req,res,next){
+    res.render('register');
+}
+
+
 function updateUser(req, res, next) {
     userModel.updateUser((err, user)=>{
         if(err) {
@@ -47,10 +57,12 @@ function updateUser(req, res, next) {
 
 
 
+
 module.exports = {
     getUsers,
     getUser,
     editUser,
-    updateUser
+    updateUser,
+    registerUser
 }
 

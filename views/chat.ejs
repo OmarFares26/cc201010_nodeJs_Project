@@ -5,25 +5,47 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="/chat.css">
     <title>Document</title>
+
     <script>
         /*const ws = new WebSocket('ws://localhost:8080');*/
         const ws = new WebSocket('ws://192.168.1.4:8080');
+
 
         ws.onopen = function () {
             console.log('Websocket is connected ...')
             ws.send('connected')
         }
-
         ws.onmessage = function (ev) {
-            console.log(ev);
+           // console.log(ev);
             addTextMessage(ev.data);
         }
 
-        function sendMyMessage() {
-            let text = document.getElementById("text").value;
-            ws.send(text);
+        let userName = '';
+
+
+        function saveUser(){
+            userName =  document.getElementById("userName").value;
+            console.log(userName);
+            //sendMyMessage();
+            document.getElementById("userName").value = "" ;
+
         }
+
+        function sendMyMessage() {
+            if(userName == ''){
+                alert("please enter your name first");
+            }else{
+            console.log(userName);
+            let text = document.getElementById("text").value;
+            ws.send(userName + " : " +text);
+            document.getElementById("text").value = "";
+            }
+        }
+
+
+
 
         function addTextMessage(message){
             let tag = document.createElement("p");
@@ -35,12 +57,27 @@
 
 
     </script>
+
+
 </head>
 <body>
+
 <h1>Chat view</h1>
+<div id="nameInput">
+<input id="userName" type="text"  placeholder="Enter your name"  value="">
+<input  id="saveName" type="button" value="Save" onclick="saveUser()">
+</div>
+
+<div id="chatScreen">
+
 <div id="messages"></div>
-<input id="text" type="text"></input>
-<button onclick="sendMyMessage()">Send</button>
+
+    <div id="messageBar">
+<input id="text" type="text" placeholder="Write your message">
+<button id="send" onclick="sendMyMessage()">Send</button>
+    </div>
+</div>
+
 </body>
 </html>
 

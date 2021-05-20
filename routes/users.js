@@ -1,12 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const userController = require('../controllers/userController')
+const userController = require('../controllers/userController');
+const authenticationService = require('../services/authentication');
 
-router.get('/', userController.getUsers)
+router.use(authenticationService.authenticateJWT);
+
+//register
+router.get('/register',userController.registerUser)
+
+router.get('/', userController.getUsers)//localhost:3000/users
 router.get('/:id', userController.getUser)
+
+
 
 router.get('/:id/edit', userController.editUser)
 router.post('/:id', userController.updateUser)
+
+/*router.get('/register', userController.initialInsert)*/
+
+
 
 /*router.get('/', (req,res) => {
 

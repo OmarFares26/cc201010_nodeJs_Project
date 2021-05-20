@@ -1,0 +1,166 @@
+html{
+    max-height: 100vh;
+    background: #56baed;
+    /*background-image: url("/images/kk.jpeg");
+    background-size: cover;
+    background-attachment: fixed;*/
+}
+
+body{
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;*/
+    margin: 0;
+    padding: 0;
+}
+::-webkit-scrollbar {
+    width: 10px;
+    border-radius: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #fafafa;
+    border-radius: 10px;
+
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: rgba(12, 12, 12, 0.8);
+    border-radius: 10px;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #000000;
+}
+
+h1{
+    text-align: center;
+}
+#nameInput{
+    margin: 0 auto;
+    margin-top:50px ;
+    text-align: center;
+
+}
+
+#userName{
+    background-color: rgba(246, 246, 246, 0.8);
+    border: none;
+    color: #0d0d0d;
+    outline: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin: 5px;
+    margin-bottom: 10px;
+    border: 2px solid #f6f6f6;
+    border-radius: 5px 5px 5px 5px;
+}
+
+
+
+#saveName{
+    border: none;
+    color: white;
+    background: #248A52;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 13px 12px;
+    border-radius: 10px;
+    outline: none !important;
+    transition: background 0.2s ease;
+
+}
+
+#saveName:hover{
+    background: #1D7745;
+}
+
+
+#chatScreen{
+    display: flex;
+    flex-direction: column;
+    /*align-items: center;*/
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(255, 255, 255, 0.8);
+    /*padding: 30px;*/
+    width: 90%;
+    /*overflow: hidden;*/
+    max-width:450px;
+    height: 400px;
+    max-height: 400px;
+    position: relative;
+    /*padding: 5px;*/
+    margin: 0 auto;
+    margin-top: 50px
+
+    /*text-align: center;*/
+}
+#messages{
+    flex: 0 0 88%;
+    overflow: hidden;
+    overflow-y: auto;
+}
+
+
+#messages p {
+    background: linear-gradient(120deg, #248A52, #257287);
+    width: 30%;
+    margin-left: 25px;
+    padding: 5px;
+    border-radius: 5px;
+    /*resize: horizontal;*/
+    color: white;
+    overflow: hidden;
+    /*border: 1px solid black;*/
+}
+
+
+
+#messageBar{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+    align-items: center;
+    flex: 0 0 6.5%;
+    padding: 11px 5px 11px 5px;
+    border-radius: 5px;
+    background: rgba(243, 240, 240, 0.8);
+    /*position: absolute;*/
+}
+#text{
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    background: none;
+    font-size: 14px;
+    /*border-bottom: 1px solid black;*/
+    width: 70%;
+}
+
+#send{
+    border: none;
+    color: white;
+    position: absolute;
+    right: 25px;
+    background: #248A52;
+    font-size: 14px;
+    text-transform: uppercase;
+    line-height: 1;
+    padding: 8px 12px;
+    border-radius: 10px;
+    outline: none !important;
+    transition: background 0.2s ease;
+
+}
+
+#send:hover{
+   background: #1D7745;
+}

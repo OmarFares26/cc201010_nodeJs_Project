@@ -21,9 +21,13 @@
     </ul>
 
 
+
     <% for (let i = 0; i < users.length; i++) { %>
-        <ul class="data">
+
+        <ul class="data" onclick="">
+            <a href="/users/<%= users[i].id %>" class="goToUser" >
             <li><%= users[i].id %></li>
+            </a>
             <li><%= users[i].name %></li>
             <li><%= users[i].surname %></li>
             <li><%= users[i].hero %></li>

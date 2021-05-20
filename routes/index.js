@@ -1,5 +1,27 @@
 const express = require('express');
 const router = express.Router();
+const authenticationService = require('../services/authentication');
+const userModel = require('../models/userModel');
+
+
+router.route('/login')
+    .get((req, res) => {
+        res.render('login')
+    })
+    .post((req, res) => {
+        userModel.getUsers((err, users) => {
+            if (err) {
+                res.sendStatus(500)
+            }
+            authenticationService.authenticateUser(req.body, users, res)
+        })
+    })
+
+router.get('/logout', (req, res) => {
+    res.cookie('accessToken', '', {maxAge: 0});
+    res.redirect('/')
+})
+
 
 router.get('/', (req,res) => {
 
@@ -10,6 +32,27 @@ router.get('/', (req,res) => {
 router.get('/chat', (req, res) => {
     res.render('chat')
 })
+
+
+/*router.get('/login', (req, res) => {
+    res.render('login')
+})*/
+
+
+
+/*router.get('/register', (req, res) => {
+    res.render('register');
+})*/
+
+/*router.post('/submit', (req, res) => {
+    //res.render('register');
+    console.log(req.body);
+    res.render('register',{title : 'data saved',
+        message: 'Data saved successfully.'})
+    //res.json(req.body);
+})*/
+
+
 
 router.get('/example/b', function (req,res,next){
     console.log('the response will be sent by next function')
