@@ -38,6 +38,8 @@ form{
     text-align: center;
 
 }
+
+/*userNmae and password*/
 #username,#password{
     background-color: #f6f6f6;
     border: none;
