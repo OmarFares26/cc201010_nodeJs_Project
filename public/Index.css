@@ -1,10 +1,11 @@
-html {
+html{
     height: 100%;
-    background: rgb(142, 203, 207);
-    background: linear-gradient(90deg, rgba(142, 203, 207, 1) 50%, rgba(117, 178, 246, 1) 50%);
+    background: rgb(142,203,207);
+    background: linear-gradient(90deg, rgba(142,203,207,1) 50%, rgba(117,178,246,1) 50%);
+
 }
 
-h1 {
+h1{
     font-size: 50px;
     margin: 0 auto;
     text-align: center;
@@ -12,7 +13,7 @@ h1 {
     font-weight: bolder;
 }
 
-h2 {
+h2{
     font-weight: bolder;
     font-size: 35px;
     margin: 0 auto;
@@ -20,7 +21,7 @@ h2 {
     justify-content: center;
 }
 
-h3 {
+h3{
     font-weight: bolder;
     font-size: 35px;
     margin: 50px auto;
@@ -28,17 +29,16 @@ h3 {
     justify-content: center;
 }
 
-div {
+div{
     display: flex;
     text-align: center;
     justify-content: center;
     flex-direction: row;
     margin-top: 0;
-
+    /*border: 1px solid brown;*/
 }
-
-p {
-
+p{
+    /*border: 2px solid black;*/
     flex-grow: 1;
     width: 400px;
     text-align: center;
@@ -46,3 +46,4 @@ p {
     font-size: 50px;
     font-weight: bolder;
 }
+
