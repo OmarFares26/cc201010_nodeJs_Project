@@ -1,8 +1,6 @@
 const jwt = require('jsonwebtoken');
 
 
-
-
 const ACCESS_TOKEN_SECRET = require('../secrets').access_token_secret;
 
 function authenticateUser({username, password}, users, res){
