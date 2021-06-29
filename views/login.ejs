@@ -1,26 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/login.css">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
+    <link rel="stylesheet" href="/login.css" >
 </head>
-<body>
+<body class="is-preload">
 
+<!-- Wrapper -->
+<div id="wrapper">
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/users">USERS</a></li>
+            <li ><a href="/register">REGISTER</a></li>
+            <li class="active"><a>LOGIN</a></li>
+        </ul>
+    </nav>
 
-<form action="/login" method="post">
-    <h1>Login details</h1>
-    <input type="text" id="username" name="username" placeholder="Enter your username" value=""/>
-    <input type="password" id="password" name="password" placeholder="Enter your password" value=""/>
-    <input id="button" type="submit" value="Login"/>
-    <input id="button1" type="reset" value="Clear all"/>
-
-</form>
+    <!-- Main -->
+    <div id="main">
+        <!-- Form -->
+        <h2>LOGIN</h2>
+        <form method="post" action="/login">
+            <div class="row gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="username" id="demo-name" value="" placeholder="Character name" />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="password" id="demo-email" value="" placeholder="Password" />
+                </div>
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="LOGIN" class="primary" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
 
 </div>
+
+<!-- Scripts -->
 <script>
     function $(elementId) {
         return document.getElementById(elementId);

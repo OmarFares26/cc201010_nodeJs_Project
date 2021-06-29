@@ -1,0 +1,334 @@
+@import url(webfonts/fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
+html, body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 12pt;
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: "Merriweather", Georgia, serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 2.375;
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    background-color: #1e252d;
+    color: #212931;
+}
+
+/* Basic */
+
+article, header, nav, section {
+    display: block;
+}
+
+ul {
+    list-style: none;
+    margin: 0 0 2rem 0;
+    padding-left: 1rem;
+}
+
+ul li {
+    padding-left: 0.5rem;
+}
+
+a {
+    border-bottom: dotted 1px;
+    text-decoration: none;
+    color: #212931;
+    border-bottom-color: rgba(33, 41, 49, 0.5);
+}
+
+a:hover {
+    border-bottom-color: transparent;
+    border-bottom-color: transparent;
+    color: #18bfef !important;
+}
+
+p {
+    text-align: justify;
+    margin: 0 0 2rem 0;
+    font-size: 1.8rem !important;
+}
+
+h2 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+    color: #212931;
+}
+
+h2 a {
+    border-bottom: 0;
+    color: inherit;
+    text-decoration: none;
+}
+.ABOUT-US{
+    padding: 3rem;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px #eeeeee;
+    font-family: 'SomeTimeLaterRegular';
+
+}
+/*END OF BASICS*/
+
+/* Wrapper */
+
+#wrapper {
+    -moz-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+    -ms-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+
+/*End of wrapper*/
+
+/* Nav */
+
+#nav {
+    color: #ffffff;
+    display: flex;
+    transition: transform 1s ease, opacity 1s ease;
+    background: rgba(255, 255, 255, 0.175);
+    height: 4rem;
+    line-height: 4rem;
+    margin: -4rem auto 0 auto;
+    overflow: hidden;
+    padding: 0 2rem 0 0;
+    position: relative;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    z-index: 2;
+    margin-top: 0px;
+}
+
+#nav a {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+#nav a:hover {
+    border-bottom-color: transparent;
+    color: #18bfef !important;
+}
+
+#nav ul.links {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    text-transform: uppercase;
+}
+
+#nav ul.links li {
+    display: block;
+    padding-left: 0;
+}
+
+#nav ul.links li a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0 2rem;
+}
+
+#nav ul.links li a:hover {
+    color: inherit !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#nav ul.links li.active {
+    background-color: #ffffff;
+}
+
+#nav ul.links li.active a {
+    color: #1e252d;
+}
+
+#nav ul.links li.active a:hover {
+    color: #18bfef !important;
+}
+
+/* Icons */
+#nav ul.icons {
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    list-style: none;
+    text-transform: uppercase;
+    padding: 0;
+}
+#nav ul.icons li{
+    display: inline-block;
+    padding: 0;
+}
+#nav ul.icons li a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    outline: none;
+    cursor: pointer;
+    padding: 0 1rem;
+}
+/* End of Nav */
+
+/* Main */
+
+#main {
+    background-color: #ffffff;
+    position: relative;
+    margin: 0 auto;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    z-index: 2;
+}
+
+#main .post {
+    display: flex;
+    padding: 8rem 8rem 6rem 8rem;
+    padding-top: 4rem;
+}
+
+#main>.post header.major>h1, #main>.post header.major h2 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin: 0 0 2rem 0;
+}
+
+.major {}
+
+/*End of main*/
+
+/* Section/Article */
+
+header {
+    cursor: default;
+    width: 60%;
+
+}
+
+header>h2+p {
+    font-size: 1rem;
+    margin-top: -0.75rem;
+}
+
+header.major {
+    margin: 0 0 4rem 0;
+    text-align: left;
+    margin-bottom: 0;
+    padding: 1rem;
+}
+
+header.major> :last-child {
+    margin-bottom: 0;
+}
+
+header.major>p {
+    margin-top: 0;
+    text-align: left;
+}
+
+header.major>.date {
+    font-size: 1rem;
+    margin: 0 0 4rem 0;
+}
+
+header.major>.date:before, header.major>.date:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: calc(45% - 6rem);
+    border-top: solid 2px #eeeeee;
+}
+
+header.major>.date:before {
+    left: 0;
+}
+
+header.major>.date:after {
+    right: 0;
+}
+
+/* Image */
+
+.row-1 {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 40%;
+}
+
+.image {
+    border: 0;
+    display: block;
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+.image img {
+    display: block;
+    width: 100%;
+    height: 600px;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+a.image {
+    overflow: hidden;
+    background-color: gray;
+    border: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+a.image img {
+    transition: transform 0.2s ease-out;
+}
+
+a.image:hover img {
+    transform: scale(1.05);
+}

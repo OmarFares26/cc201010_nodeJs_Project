@@ -13,7 +13,9 @@
   "author": "\"Abdelrahman/Omar Fares\"",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
+    "chalk": "^4.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
@@ -21,8 +23,11 @@
     "express-fileupload": "^1.2.1",
     "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
     "mysql": "^2.18.1",
+    "nodemon": "^2.0.7",
     "parser": "^0.1.4",
+    "uuid": "^8.3.2",
     "ws": "^7.4.5"
   }
 }

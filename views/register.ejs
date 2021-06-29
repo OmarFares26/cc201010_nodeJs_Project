@@ -1,30 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Login</title>
-    <link rel="stylesheet" type="text/css" href="/register.css">
+    <title>Register</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
+    <link rel="stylesheet" href="/register.css" />
+
 </head>
-<body>
+<body class="is-preload">
 
+<!-- Wrapper -->
+<div id="wrapper">
 
-<form method="post" action="/users/register">
-    <h1>Register form</h1>
-    <input type="text" id="name" name="name" placeholder="Name" value="" required/>
-    <input type="text" id="surname" name="surname" placeholder="Surname" value=""/>
-    <input type="text" id="hero" name="hero" placeholder="Hero" value=""/>
-    <input type="email" id="email" name="email" placeholder="Email" value=""/>
-    <input type="text" id="info" name="info" placeholder="Info" value=""/>
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/users">USERS</a></li>
+            <li class="active"><a href="#">REGISTER</a></li>
+            <li ><a href="/login">LOGIN</a></li>
+        </ul>
+    </nav>
 
-    <input id="button" type="submit" value="Register"/>
-    <input id="button1" type="reset" value="Clear all"/>
+    <!-- Main -->
+    <div id="main" >
+        <!-- Form -->
+        <h2>Registeration</h2>
 
-</form>
+        <form method="post" action="/users/s/userr" enctype="multipart/form-data">
 
+            <div class="row gtr-uniform"  >
+
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="name" id="name" value="" placeholder="First name" />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="surname" id="last name" value="" placeholder="Last name" />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="nickname" id="nick" value="" placeholder="Nick name" />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="email" name="email" id="email" value="" placeholder="Email" />
+                </div>
+                <div class="col-6 col-12-xsmall">
+                    <input type="text" name="password" id="password" value="" placeholder="Password" />
+                </div>
+
+                <div  style=" padding-top: 0" class="col-6 col-12-xsmall">
+                    <input style="display: block ; font-size: 1.4rem" type="file" name="image" id="image" accept="image/png, image/gif, image/jpeg"  />
+                </div>
+
+                <div class="col-12">
+                    <ul class="actions">
+                        <li><input type="submit" value="REGISTER" class="primary" /></li>
+                        <li><input type="reset" value="CLEAR ALL" /></li>
+                    </ul>
+                </div>
+            </div>
+        </form>
+    </div>
 </div>
 
 </body>
 </html>
+
+
+
+
+

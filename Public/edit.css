@@ -20,7 +20,6 @@
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
     display: block;
     font-size: 0.8rem;
-    font-size: 1.1rem;
     outline: none;
     cursor: pointer;
 }
@@ -44,6 +43,7 @@
     width: 90%;
     display: block;
     margin: 0 auto;
+    max-width: 100%;
 }
 a.image {
     overflow: hidden;
@@ -75,7 +75,6 @@ table.customTable {
     border-style: solid;
     color: #000000;
     font-size: 1.5rem;
-
 }
 
 table.customTable td, table.customTable th {
@@ -92,6 +91,40 @@ table.customTable thead {
 .head{
     font-weight: 500;
     text-transform: uppercase;
-    letter-spacing: 2px;
     width: 200px;
+}
+
+.input{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    outline: none;
+    border: none;
+    font-family: 'SomeTimeLaterRegular';
+    font-size: 1.5rem;
+
+}
+
+.imm{
+    font-family: 'SomeTimeLaterRegular';
+    font-size: 1.2rem;
+    margin-left: 100px;
+}
+
+
+
+/* Chrome, Edge & Safari */
+input[type="file"]::-webkit-file-upload-button {
+    background-color: #212931;
+    box-shadow: none;
+    color: #ffffff !important;
+    appearance: none;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: 'SomeTimeLaterRegular';
+    padding: 0.5rem;
+    text-align: center;
+    text-transform: uppercase;
 }

@@ -1,21 +1,250 @@
-html{
-    max-height: 100vh;
-    background: #56baed;
-    /*background-image: url("/images/kk.jpeg");
-    background-size: cover;
-    background-attachment: fixed;*/
-}
+@import url(webfonts/fontawesome-all.min.css);
+@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
 
-body{
-    /*display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;*/
+html, body {
     margin: 0;
     padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    font-size: 12pt;
 }
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+body  {
+    font-family: "Merriweather", Georgia, serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 300;
+    font-size: 2rem;
+    line-height: 2.375;
+    line-height: 1;
+    -webkit-text-size-adjust: none;
+    background-color: #1e252d;
+    color: #212931;
+}
+
+
+/* Basic */
+ul {
+    list-style: none;
+    margin: 0 0 2rem 0;
+    padding-left: 1rem;
+}
+
+ul li {
+    padding-left: 0.5rem;
+}
+a {
+    border-bottom: dotted 1px;
+    text-decoration: none;
+    color: #212931;
+    border-bottom-color: rgba(33, 41, 49, 0.5);
+}
+a:hover {
+    border-bottom-color: transparent;
+    border-bottom-color: transparent;
+    color: #18bfef !important;
+}
+h2 {
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    line-height: 1.5;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    margin: 0 0 1rem 0;
+    font-size: 2rem;
+    line-height: 1.3;
+    margin: 0 0 1.5rem 0;
+    margin-bottom: 0;
+    color: #212931;
+    padding: 2rem;
+    padding-top:3rem ;
+    padding-bottom: 1rem;
+    border-bottom: solid 2px #eeeeee;
+}
+
+h2 a{
+    border-bottom: 0;
+    color: inherit;
+    text-decoration: none;
+}
+
+/*END OF BASICS*/
+
+/* Wrapper */
+
+#wrapper {
+    -moz-transition: opacity 0.5s ease;
+    -webkit-transition: opacity 0.5s ease;
+    -ms-transition: opacity 0.5s ease;
+    transition: opacity 0.5s ease;
+    position: relative;
+    z-index: 1;
+    /*overflow: hidden;*/
+}
+
+/*End of wrapper*/
+/* Nav */
+#nav {
+    color: #ffffff;
+    display: flex;
+    transition: transform 1s ease, opacity 1s ease;
+    background: rgba(255, 255, 255, 0.175);
+    height: 4rem;
+    line-height: 4rem;
+    margin: -4rem auto 0 auto;
+    overflow: hidden;
+    padding: 0 2rem 0 0;
+    position: relative;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    z-index: 2;
+    margin-top: 0px;
+}
+#nav a {
+    color: #ffffff;
+    border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+
+#nav a:hover {
+    border-bottom-color: transparent;
+    color: #18bfef !important;
+}
+#nav ul.links {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    flex-grow: 1;
+    flex-shrink: 1;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    list-style: none;
+    margin-bottom: 0;
+    padding-left: 0;
+    text-transform: uppercase;
+}
+#nav ul.links li {
+    display: block;
+    padding-left: 0;
+}
+
+#nav ul.links li a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0 2rem;
+}
+
+#nav ul.links li a:hover {
+    color: inherit !important;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#nav ul.links li.active {
+    background-color: #ffffff;
+}
+
+#nav ul.links li.active a {
+    color: #1e252d;
+}
+
+#nav ul.links li.active a:hover {
+    color: #18bfef !important;
+}
+
+/* End of Nav */
+
+
+/* Main */
+
+#main {
+    background-color: #ffffff;
+    position: relative;
+    margin: 0 auto;
+    padding-bottom: 3rem;
+    width: calc(100% - 4rem);
+    max-width: 72rem;
+    z-index: 2;
+}
+
+/* #main > * {
+     padding: 4rem 4rem 2rem 4rem ;
+     margin: 0;
+ }*/
+
+/*End of main*/
+
+/* Button */
+
+button {
+    appearance: none;
+    transition: background-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+    border: 0;
+    border-radius: 0;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    padding: 0.5rem 2rem;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    white-space: nowrap;
+    padding: 10px 12px;
+}
+button
+{
+    background-color: transparent;
+    box-shadow: inset 0 0 0 2px #212931;
+    color: #212931 !important;
+}
+button:hover {
+    box-shadow: inset 0 0 0 2px #18bfef;
+    color: #18bfef !important;
+}
+
+/* Actions */
+
+ul.actions {
+    display: -moz-flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    display: flex;
+    cursor: default;
+    list-style: none;
+    margin-left: -1rem;
+    padding-left: 0;
+}
+ul.actions li {
+    padding: 0 0 0 1rem;
+    vertical-align: middle;
+}
+ul.actions.special {
+    -moz-justify-content: center;
+    -webkit-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+    width: 100%;
+    margin-left: 0;
+}
+
+
+
+
 ::-webkit-scrollbar {
-    width: 10px;
+    width: 5px;
     border-radius: 5px;
 }
 
@@ -38,41 +267,42 @@ body{
     background: #000000;
 }
 
-h1{
-    text-align: center;
-}
 #nameInput{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
     margin: 0 auto;
-    margin-top:50px ;
+    margin-top:0px ;
     text-align: center;
-
+    padding: 1rem;
+    font-size: 1.2rem;
 }
 
-#userName{
+
+#userName , #Room{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
     background-color: rgba(246, 246, 246, 0.8);
     border: none;
     color: #0d0d0d;
     outline: none;
-    padding: 10px 20px;
+    padding: 7px 17px;
     text-align: center;
     text-decoration: none;
     font-size: 16px;
     margin: 5px;
     margin-bottom: 10px;
-    border: 2px solid #f6f6f6;
-    border-radius: 5px 5px 5px 5px;
+    border: 2px solid black;
 }
 
 
 
 #saveName{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
     border: none;
     color: white;
     background: #248A52;
     font-size: 14px;
     text-transform: uppercase;
     line-height: 1;
-    padding: 13px 12px;
+    padding: 12px 10px;
     border-radius: 10px;
     outline: none !important;
     transition: background 0.2s ease;
@@ -85,11 +315,11 @@ h1{
 
 
 #chatScreen{
+    font-family: "Source Sans Pro", Helvetica, sans-serif;
     display: flex;
     flex-direction: column;
     /*align-items: center;*/
     border-radius: 10px 10px 10px 10px;
-    background: rgba(255, 255, 255, 0.8);
     /*padding: 30px;*/
     width: 90%;
     /*overflow: hidden;*/
@@ -99,9 +329,12 @@ h1{
     position: relative;
     /*padding: 5px;*/
     margin: 0 auto;
-    margin-top: 50px
+    margin-top: 0px;
+    /*background-color: rgb(31, 38, 46 , 0.7);*/
+    background-image: url(/images/wp.png);
+    box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
+    border: 2px solid #ddd;
 
-    /*text-align: center;*/
 }
 #messages{
     flex: 0 0 88%;
@@ -111,14 +344,20 @@ h1{
 
 
 #messages p {
-    background: linear-gradient(120deg, #248A52, #257287);
-    width: 30%;
+    /*background: linear-gradient(120deg, #248A52, #257287);*/
+    background-color: #579ffb;
+    width: 35%;
     margin-left: 25px;
     padding: 5px;
     border-radius: 5px;
-    /*resize: horizontal;*/
     color: white;
     overflow: hidden;
+    padding: 15px;
+    border-radius: 15px;
+    line-height: 1.2;
+    font-size: 0.8rem;
+    max-width: 100%;
+
     /*border: 1px solid black;*/
 }
 
@@ -130,8 +369,9 @@ h1{
     /*justify-content: center;*/
     align-items: center;
     flex: 0 0 6.5%;
-    padding: 11px 5px 11px 5px;
-    border-radius: 5px;
+    /*padding: 8px 5px 11px 5px;*/
+    padding: 0.37rem;
+    border-radius: 9px;
     background: rgba(243, 240, 240, 0.8);
     /*position: absolute;*/
 }
@@ -142,7 +382,7 @@ h1{
     background: none;
     font-size: 14px;
     /*border-bottom: 1px solid black;*/
-    width: 70%;
+    width: 80%;
 }
 
 #send{
@@ -158,9 +398,10 @@ h1{
     border-radius: 10px;
     outline: none !important;
     transition: background 0.2s ease;
-
 }
 
 #send:hover{
-   background: #1D7745;
+    background: #1D7745;
 }
+
+

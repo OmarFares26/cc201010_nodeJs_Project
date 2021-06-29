@@ -1,44 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <title>User Information</title>
-    <link rel="stylesheet" href='Users1.css'>
-</head >
-<body>
-<!--<h1>HALLO FROM USERS PAGE</h1>-->
+    <title>Users Page</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
+    <link rel="stylesheet" href="/Users1.css">
+    <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 
-<div>
-    <h2>Users Information </h2>
-
-
-    <ul class="labels">
-        <li>#ID</li>
-        <li>NAME</li>
-        <li>SURNAME</li>
-        <li>HERO</li>
-        <li>Email</li>
-        <li>Info</li>
-    </ul>
-
-
-
-    <% for (let i = 0; i < users.length; i++) { %>
-
-        <ul class="data" onclick="">
-            <a href="/users/<%= users[i].id %>" class="goToUser" >
-            <li><%= users[i].id %></li>
-            </a>
-            <li><%= users[i].name %></li>
-            <li><%= users[i].surname %></li>
-            <li><%= users[i].hero %></li>
-            <li><%= users[i].email %></li>
-            <li><%= users[i].info %></li>
+</head>
+<body class="is-preload">
+<div id="wrapper" class="fade-in">
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="/">HOME</a></li>
+            <li class="active"><a href="#">USERS</a></li>
+            <li><a href="/register">REGISTER</a></li>
+            <li><a href="/login">LOGIN</a></li>
+        </ul>
+        <ul class="icons">
+            <li><a href="/logout">LogOut</a></li>
         </ul>
 
-    <% } %>
+    </nav>
+    <div id="main">
 
+        <!-- Featured Post -->
+        <article class="post featured">
+            <header class="major">
+
+                <h2><a href="#">SpongeBob SquarePants  <br/>
+                        </a></h2>
+
+                <p class="story"> SpongeBob SquarePants is an American cartoon series<br/>
+                    that was developed in 1998 by the American marine biologist<br/>
+                    and trick film producer Stephen Hillenburg <br>
+                    The series is about the adventures of a  sponge<br>
+                    connected to other marine animals in<br>
+                    the sea floor located on the city of Bikini Bottom lives.</p>
+            </header>
+            <ul class="actions special">
+                <li><a href="#users" class="scrollLink">VIEW USERS</a></li>
+                <li ><a href="/register" class="scrollLink">INSERT USER</a></li>
+            </ul>
+        </article>
+
+        <!-- Posts -->
+        <section class="posts" id="users">
+            <% for (let i = 0; i < users.length; i++) { %>
+                <article>
+                    <header>
+                        <span class="date"><%= users[i].id %></span>
+                        <h2><a href="/users/<%= users[i].id %>"><%= users[i].Character_Firstname %></a></h2>
+                    </header>
+                    <a href="#" class="image fit"><img src="<%= users[i].Character_Image%>" alt="" width="445.6" height="271"/></a>
+                    <ul class="actions special">
+                        <li><a href="/users/<%= users[i].id %>" class="button">View User</a></li>
+                        <form class="form-delete" method="post" action="users/<%= users[i].id%>/delete">
+                            <li>
+                                <input onclick="return confirm('Are you sure you want to delete <%= users[i].Character_Firstname%>')"  class="input-delete" value="Delete User" type="submit"></li>
+                        </form>
+
+                    </ul>
+                </article>
+            <% } %>
+        </section>
+
+    </div>
 </div>
 
 
+<script>
+    //SLOW SCROLL DOWN FUNCTION J.QUERY
+    $(document).ready(function () {
+        $("a.scrollLink").click(function (event) {
+            event.preventDefault();
+            $("html, body").animate({
+                scrollTop: $($(this).attr("href")).offset().top
+            }, 500);
+        });
+    });
+</script>
 </body>
 </html>

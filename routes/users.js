@@ -1,93 +1,23 @@
 const express = require('express');
 const router = express.Router();
+//import userController
 const userController = require('../controllers/userController');
+//import authentication
 const authenticationService = require('../services/authentication');
 
-router.use(authenticationService.authenticateJWT);
+router.get('/user/chat',userController.viewChatting)
+router.post('/s/userr',userController.registerUser)
 
-//register
-router.get('/register',userController.registerUser)
+//Responsible for login authentication
+router.use(authenticationService.authenticateJWT);
 
 router.get('/', userController.getUsers)//localhost:3000/users
 router.get('/:id', userController.getUser)
-
-
-
+router.post('/:id/delete',userController.deleteUser)
 router.get('/:id/edit', userController.editUser)
 router.post('/:id', userController.updateUser)
 
-/*router.get('/register', userController.initialInsert)*/
 
 
-
-/*router.get('/', (req,res) => {
-
-    res.send('Hallo world  from users!');
-});
-*/
-
-
-//let userDetails = {};
-
-router.route('/:id/picture')
-    .get((req, res) => {
-        let uID = req.params.id;
-        const filename = uID + '.jpg';
-        const options = {
-            root: path.join(__dirname, '../uploads')
-        }
-        res.sendfile(filename, options);
-    })
-    .post((req, res) => {
-        try {
-            if (!req.files) {
-                res.send({
-                    status: false,
-                    message: 'no file has been uploaded'
-                })
-            } else {
-                let picture = req.files.picture;
-
-                let filename = './uploads/' + req.params.id + '.jpg';
-                picture.mv(filename);
-                console.log('saved the picture to: ' + filename)
-
-                res.send(
-                    {
-                        status: true,
-                        message: 'File has been uploaded',
-                        data: {
-                            name: picture.name,
-                            size: picture.size
-                        }
-                    }
-                )
-
-            }
-        } catch (err) {
-            res.sendStatus(500).send(err)
-        }
-    })
-
-
-let userDetails = {};
-
-router.route('/:id/details')
-    .get((req, res) => {
-        //res.send('Get request for user' + req.params.id + 'details')
-        res.json(userDetails);
-    })
-    .post((req, res) => {
-        console.log(req.body);
-        userDetails = req.body;
-        res.send('hello from Tony and this is the Post request')
-    })
-
-
-/*router.get('/:id' , (req,res)=> {
-    console.log(req.params)
-    res.send('Got request for user id ' + req.params.id)
-})*/
-
-
+//Export router
 module.exports = router;

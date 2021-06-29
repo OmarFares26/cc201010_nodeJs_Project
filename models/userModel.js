@@ -1,96 +1,87 @@
-//Lecture 5
+//import database
 const db = require('../services/database.js').config;
-
-
-
-// const users = [
-//     {
-//         id: 1,
-//         name: "Tony",
-//         surname: "Stark",
-//         hero: "Iron Man"
-//     },
-//     {
-//         id: 2,
-//         name: "Wanda",
-//         surname: "Maximoff",
-//         hero: "Scarlet Witch"
-//     },
-//     {
-//         id: 3,
-//         name: "Peter",
-//         surname: "Parker",
-//         hero: "Spider-Man"
-//     }
-// ];
-
-
-//lecture 4
-// function getUsers() {
-//     return users;
-// }
-
-
+const bcrypt = require('bcrypt')
 
 function getUsers(cb) {
     db.query("SELECT * FROM users1", function (err, users, fields) {
-        if (err) { cb(err) } //this is just for error handling
-        console.log(users);
-        cb(null, users)
+        if (err) {
+            cb(err)//this is just for error handling
+        }
+        else {
+            cb(null, users)
+
+        }
     });
 }
 
-
-function getUser(cb,id) {
+function getUser(cb, id) {
+    //select data from database
     let sql = "SELECT * FROM users1 WHERE id= " + parseInt(id);
-    db.query( sql, function (err, user, fields) {
-        if(err){
-
+    //request for data from database
+    db.query(sql, function (err, user, fields) {
+        if (err) {
             cb(err)
-        }
-        console.log(user[0])
-        cb(null,user[0])
-    });
+        }else{
+            cb(null, user[0])
 
+        }
+        //console.log(user[0])
+    });
 }
 
-/*function postUser(cb , info) {
-    let sql = "insert into users1(name,surname,email,hero,info) values('"+ info.name +"','"+ info.surname +"','"+ info.email +"','"+ info.hero+"','"+ info.info +")";
-    db.query( sql, function (err, user, fields) {
-        if(err){
+async function registerUser(cb, input , picId) {
+    //pw : to calculate the hash of the password
+    let pw = await bcrypt.hash(input.password, 10)
+    let sql = "INSERT INTO users1 (Character_Firstname, Character_Lastname, Character_Nickname, email , password , Character_Image ) VALUES ('" + input.name + "','" + input.surname + "','" + input.nickname + "','" + input.email + "','" + pw + "','" + /images/+picId+'.jpg' + "')";
+   // console.log(sql)
 
-            cb(err)
+    db.query(sql, function (err, input, fields) {
+        if (err) {
+            cb(err, null)
         }
+        cb(null, input)
     });
+}
 
-}*/
-
-function updateUser(cb, userData) {
+function updateUser(cb, userData , picId) {
+    //left side column name , right side input field name
+    //db.escape parses whatever we give to it to prevent sql injection
     //update table users1
     let sql = "UPDATE users1 SET" +
-        " name = "+ db.escape(userData.name) +
-        ", surname = "+ db.escape(userData.surname) +
-        ", hero = "+ db.escape(userData.hero) +
-        ", email = "+ db.escape(userData.email) +
-        ", info = "+ db.escape(userData.info) +
+        " Character_Firstname = " + db.escape(userData.Character_Firstname) +
+        ", Character_Lastname = " + db.escape(userData.Character_Lastname) +
+        ", Character_Nickname = " + db.escape(userData.Character_Nickname) +
+        ", email = " + db.escape(userData.email) +
+        ", Character_Image = " + db.escape(/images/+ picId +'.jpg') +
         " WHERE id = " + parseInt(userData.id);
+    console.log(picId)
     console.log(sql)
     db.query(sql, function (err, result, fields) {
         if (err) {
             cb(err)
         }
-        console.log(result.affectedRows + " rows have been affected!");
+        // console.log(result.affectedRows + " rows have been affected!");
         cb(null, userData);
     })
 }
 
+function deleteUser(cb, id) {
+    let sql = "DELETE FROM users1 WHERE id = " + id;
+    db.query(sql, function (err, result, fields) {
+        if (err) {
+            cb(err)
+        }
+        //console.log(result.affectedRows + " rows have been affected!");
+        cb(null);
+    })
+}
 
-
-
+//Export "userModel" so we can use them in  "userController"
 module.exports = {
     getUsers,
     getUser,
-    updateUser
-
+    registerUser,
+    updateUser,
+    deleteUser
 }
 

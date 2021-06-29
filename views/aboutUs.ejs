@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>About Us</title>
+    <title>About Us</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+    <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
+    <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="aboutUs.css"/>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
+</head>
+<body class="is-preload">
+
+<!-- Wrapper -->
+<div id="wrapper" class="fade-in">
+    <!-- Nav -->
+    <nav id="nav">
+        <ul class="links">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/users">USERS</a></li>
+            <li><a href="/users/register">REGISTER</a></li>
+            <li><a href="/login">LOGIN</a></li>
+
+        </ul>
+
+
+        <ul class="icons">
+            <li><a href="/users/user/chat">Chat<i style='font-size:1rem; margin-left: 0.1rem ; display: inline-block' class='far'>&#xf086;</i></a></li>
+            <li><a href="/logout">logout</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Main -->
+    <div id="main">
+        <!-- Featured Post -->
+        <h2 class="ABOUT-US">ABOUT US</h2>
+        <article class="post featured">
+
+            <div class="row-1"><a href="#" class="image main">
+                    <img src="<%= info[0].studentImage %>" alt="Omar Picture"/></a>
+            </div>
+
+            <header class="major">
+                <h2><%= info[0].studentFullName %></h2>
+                <p>Nick name: <%= info[0].studentNickName %></p>
+                <p>Age: <%= info[0].studentAge %></p>
+                <p>Nationality: <%= info[0].studentNationality %></p>
+                <p>Date of birth: <%= info[0].studentBirthDate %></p>
+                <p>Occupation: <%= info[0].studentOccupation %></p>
+                <p>Hobbies: <%= info[0].studentHobbies %></p>
+                <p>Email: <%= info[0].Email %></p>
+            </header>
+
+
+        </article>
+        <article class="post featured">
+
+            <header class="major">
+                <h2><%= info[1].studentFullName %></h2>
+                <p>Nick name: <%= info[1].studentNickName %></p>
+                <p>Age: <%= info[1].studentAge %></p>
+                <p>Nationality: <%= info[1].studentNationality %></p>
+                <p>Date of birth: <%= info[1].studentBirthDate %></p>
+                <p>Occupation: <%= info[1].studentOccupation %></p>
+                <p>Hobbies: <%= info[1].studentHobbies %></p>
+                <p>Email: <%= info[1].Email %></p>
+            </header>
+
+            <div class="row-1"><a href="#" class="image main">
+                    <img src="<%= info[1].studentImage %>" alt="Bedo Picture"/></a>
+            </div>
+
+
+        </article>
+
+    </div>
+</div>
+
+
+</body>
+</html>
