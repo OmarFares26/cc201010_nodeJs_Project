@@ -16,11 +16,16 @@
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "chalk": "^4.1.1",
+    "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-fileupload": "^1.2.1",
+    "express-flash": "0.0.2",
+    "express-flash-message": "^2.1.0",
+    "express-flash-messages": "^0.1.1",
+    "express-session": "^1.17.2",
     "http": "0.0.1-security",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.10.0",
@@ -28,6 +33,6 @@
     "nodemon": "^2.0.7",
     "parser": "^0.1.4",
     "uuid": "^8.3.2",
-    "ws": "^7.4.5"
+    "ws": "^7.5.1"
   }
 }

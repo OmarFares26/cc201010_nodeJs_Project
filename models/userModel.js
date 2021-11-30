@@ -2,6 +2,7 @@
 const db = require('../services/database.js').config;
 const bcrypt = require('bcrypt')
 
+//select all users from database
 function getUsers(cb) {
     db.query("SELECT * FROM users1", function (err, users, fields) {
         if (err) {
@@ -14,6 +15,7 @@ function getUsers(cb) {
     });
 }
 
+//select only specified user using id
 function getUser(cb, id) {
     //select data from database
     let sql = "SELECT * FROM users1 WHERE id= " + parseInt(id);
@@ -25,16 +27,15 @@ function getUser(cb, id) {
             cb(null, user[0])
 
         }
-        //console.log(user[0])
     });
 }
 
+//register users and save their password as hash in database
 async function registerUser(cb, input , picId) {
     //pw : to calculate the hash of the password
     let pw = await bcrypt.hash(input.password, 10)
-    let sql = "INSERT INTO users1 (Character_Firstname, Character_Lastname, Character_Nickname, email , password , Character_Image ) VALUES ('" + input.name + "','" + input.surname + "','" + input.nickname + "','" + input.email + "','" + pw + "','" + /images/+picId+'.jpg' + "')";
-   // console.log(sql)
-
+    let sql = "INSERT INTO users1 (Character_Firstname, Character_Lastname, Character_Nickname, email , password , Character_Image , role ) VALUES ('" + input.name + "','" + input.surname + "','" + input.nickname + "','" + input.email + "','" +  pw + "','" + picId + "' , '" + 'user' + "')";
+    console.log(sql)
     db.query(sql, function (err, input, fields) {
         if (err) {
             cb(err, null)
@@ -43,6 +44,7 @@ async function registerUser(cb, input , picId) {
     });
 }
 
+//Update user details/info in database
 function updateUser(cb, userData , picId) {
     //left side column name , right side input field name
     //db.escape parses whatever we give to it to prevent sql injection
@@ -52,7 +54,7 @@ function updateUser(cb, userData , picId) {
         ", Character_Lastname = " + db.escape(userData.Character_Lastname) +
         ", Character_Nickname = " + db.escape(userData.Character_Nickname) +
         ", email = " + db.escape(userData.email) +
-        ", Character_Image = " + db.escape(/images/+ picId +'.jpg') +
+        ", Character_Image = " + db.escape( picId ) +
         " WHERE id = " + parseInt(userData.id);
     console.log(picId)
     console.log(sql)
@@ -60,23 +62,22 @@ function updateUser(cb, userData , picId) {
         if (err) {
             cb(err)
         }
-        // console.log(result.affectedRows + " rows have been affected!");
         cb(null, userData);
     })
 }
 
+//delete specified user using id
 function deleteUser(cb, id) {
     let sql = "DELETE FROM users1 WHERE id = " + id;
     db.query(sql, function (err, result, fields) {
         if (err) {
             cb(err)
         }
-        //console.log(result.affectedRows + " rows have been affected!");
         cb(null);
     })
 }
 
-//Export "userModel" so we can use them in  "userController"
+//Export "userModel functions" so we can use them in  "userController"
 module.exports = {
     getUsers,
     getUser,

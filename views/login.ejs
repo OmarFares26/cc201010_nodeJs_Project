@@ -28,7 +28,7 @@
         <form method="post" action="/login">
             <div class="row gtr-uniform">
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="username" id="demo-name" value="" placeholder="Character name" />
+                    <input type="text" name="username" id="demo-name" value="" placeholder="Character Firstname" />
                 </div>
                 <div class="col-6 col-12-xsmall">
                     <input type="text" name="password" id="demo-email" value="" placeholder="Password" />
@@ -38,27 +38,24 @@
                         <li><input type="submit" value="LOGIN" class="primary" /></li>
                     </ul>
                 </div>
+                <% if (locals.messages) { %>
+                    <div class="messages" style="background-color: white !important;" >
+                        <ul class="messages">
+                            <% Object.keys(messages).forEach((key) => { %>
+                                <% messages[key].forEach((message) => { %>
+                                    <li class="<%= key %>"><%= message %></li>
+                                <% }) %>
+                            <% }) %>
+                        </ul>
+                    </div>
+                <% } %>
+
             </div>
         </form>
     </div>
 
 </div>
 
-<!-- Scripts -->
-<script>
-    function $(elementId) {
-        return document.getElementById(elementId);
-    }
-    /*alert("hallo from login page");*/
-    console.log("hallo from login page");
 
-    $("button").onclick = () =>{
-        //alert("works");
-        var fname = $("username").value;
-        var fpassword = $("password").value;
-        console.log("Username: " + fname);
-        console.log("Password: " + fpassword);
-    }
-</script>
 </body>
 </html>

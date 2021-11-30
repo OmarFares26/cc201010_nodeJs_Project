@@ -7,6 +7,8 @@
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
     <link rel="stylesheet" href="/Users1.css" >
     <link rel="stylesheet" href="/User.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
 
 
 </head>
@@ -23,17 +25,18 @@
             <li ><a href="/login">LOGIN</a></li>
         </ul>
         <ul class="icons">
+            <li><a href="/chat">Chat<i class='far'>&#xf086;</i></a></li>
             <li><a href="/logout">LogOut</a></li>
         </ul>
-
     </nav>
 
     <!-- Main -->
     <div id="main">
         <!-- Featured Post -->
+        <% if (user.Character_Image !== 'undefined') { %>
         <article class="post featured">
             <h2><%= user.Character_Firstname %></h2>
-            <a href="#" class="image main"><img src="<%= user.Character_Image%>" alt="" width="200" height="300" /></a>
+            <a  class="image main"><img src="/images/<%= user.Character_Image%>.jpg" alt="" width="200" height="300" /></a>
             <header class="major">
                 <span class="date" style=" margin-bottom: 30px;font-size: 1.2rem">USER DETAILS</span>
                 <table class="customTable">
@@ -42,7 +45,6 @@
                         <td class="head">First Name</td>
                         <td><%= user.Character_Firstname %></td>
                     </tr>
-
                     <tr>
                         <td class="head">Last name</td>
                         <td><%= user.Character_Lastname %></td>
@@ -56,16 +58,47 @@
                         <td><%= user.email %></td>
                     </tr>
                     </tbody>
-
                 </table>
-
-
             </header>
-
             <ul class="actions special">
                 <li><a href="/users/<%= user.id%>/edit" class="button large">EDIT</a></li>
             </ul>
         </article>
+        <% } %>
+
+        <% if (user.Character_Image === 'undefined') { %>
+            <article class="post featured">
+                <h2><%= user.Character_Firstname %></h2>
+                <a class="image main"><img src="/images/profile.jpg" alt="" width="200" height="300" /></a>
+                <header class="major">
+                    <span class="date" style=" margin-bottom: 30px;font-size: 1.2rem">USER DETAILS</span>
+                    <table class="customTable">
+                        <tbody>
+                        <tr>
+                            <td class="head">First Name</td>
+                            <td><%= user.Character_Firstname %></td>
+                        </tr>
+                        <tr>
+                            <td class="head">Last name</td>
+                            <td><%= user.Character_Lastname %></td>
+                        </tr>
+                        <tr>
+                            <td class="head">Nick name</td>
+                            <td><%= user.Character_Nickname %></td>
+                        </tr>
+                        <tr>
+                            <td class="head">Email</td>
+                            <td><%= user.email %></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </header>
+                <ul class="actions special">
+                    <li><a href="/users/<%= user.id%>/edit" class="button large">EDIT</a></li>
+                </ul>
+            </article>
+        <% } %>
+
     </div>
 </div>
 

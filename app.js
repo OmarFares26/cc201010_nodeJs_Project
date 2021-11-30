@@ -6,7 +6,7 @@ const app = express()
 const port = 3001;
 //allow us the parse the body client sent to the server
 const bodyParser = require('body-parser')
-
+//Are responsible for image upload
 const cors = require('cors')
 const fileUpload = require('express-fileupload')
 //to read cookies
@@ -21,16 +21,36 @@ const morgan = require('morgan')
 const fs = require('fs')
 //unique ids
 const uuid = require('uuid')
-
-
-
-
+//allows the us to send a message whenever a user is redirecting to a specified web-page
+const connectFlash = require('connect-flash');
+//It helps in saving the data in the key-value form.
+const session = require('express-session')
+// create a write stream (in append mode)
+const accessLogStream = fs.createWriteStream(path.join(__dirname, './logs/requests.log'), {flags: 'a'})
 
 //path of the view
 app.set('views', path.join(__dirname, 'views'))
 //type of view
 app.set('view engine', 'ejs');
 
+// Init Session
+app.use(
+    session({
+        secret: 'here is the secret',
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            // secure: true,
+            httpOnly: true,
+        },
+    })
+);
+
+app.use(connectFlash());
+app.use((req, res, next) => {
+    res.locals.messages = req.flash();
+    next();
+});
 
 // telling the express module that the public  directory has all of our site assets
 //serve static files from /public
@@ -38,43 +58,37 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/public'));
 app.use(express.static('public'));
 
-// create a write stream (in append mode)
-const accessLogStream = fs.createWriteStream(path.join(__dirname, './logs/requests.log'), { flags: 'a' })
 // write detailed logs into the specified file
-    app.use(morgan('combined', { stream: accessLogStream }))
+app.use(morgan('combined', {stream: accessLogStream}))
 // write short logs into the console
-    app.use(morgan('short'))
-
-
+app.use(morgan('short'))
 
 app.use(cookieParser())
-
 app.use(cors())
 app.use(fileUpload({createParentPath: true}))
-
 
 //allow us to interpret json
 //return middleware that only parse JSON
 app.use(bodyParser.json())
 //allow us to interpret urlencoded
 //return middleware that only parse urlencoded
-app.use(bodyParser.urlencoded({extended:true}))
+app.use(bodyParser.urlencoded({extended: true}))
 
 
 //import the routers in the app.js
 const indexRouter = require('./routes/index')
 const usersRouter = require('./routes/users')
-
 //use the routers for the desired routes
 app.use('/', indexRouter)
 app.use('/users', usersRouter)
 
 
 // err tells  nodejs/Express that this is an error handler function
-function  errorHandler(err,req,res,next){
+function errorHandler(err, req, res, next) {
     console.log(err)
-    res.render('error',{error: err})
+    res.render('error', {error: err})
 }
+
 //Tell the app to always use this function
 app.use(errorHandler)
 

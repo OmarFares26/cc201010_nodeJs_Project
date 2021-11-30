@@ -17,7 +17,7 @@
         <ul class="links">
             <li><a href="/">HOME</a></li>
             <li><a href="/users">USERS</a></li>
-            <li class="active"><a href="#">REGISTER</a></li>
+            <li class="active"><a href="">REGISTER</a></li>
             <li ><a href="/login">LOGIN</a></li>
         </ul>
     </nav>
@@ -27,24 +27,24 @@
         <!-- Form -->
         <h2>Registeration</h2>
 
-        <form method="post" action="/users/s/userr" enctype="multipart/form-data">
+        <form method="post" action="/users/add/user" enctype="multipart/form-data" >
 
             <div class="row gtr-uniform"  >
 
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="name" id="name" value="" placeholder="First name" />
+                    <input type="text" name="name" id="name" value="" placeholder="Character Firstname" required />
                 </div>
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="surname" id="last name" value="" placeholder="Last name" />
+                    <input type="text" name="surname" id="last name" value="" placeholder="Character Lastname"required />
                 </div>
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="nickname" id="nick" value="" placeholder="Nick name" />
+                    <input type="text" name="nickname" id="nick" value="" placeholder="Nick name" required/>
                 </div>
                 <div class="col-6 col-12-xsmall">
-                    <input type="email" name="email" id="email" value="" placeholder="Email" />
+                    <input type="email" name="email" id="email" value="" placeholder="Email" required/>
                 </div>
                 <div class="col-6 col-12-xsmall">
-                    <input type="text" name="password" id="password" value="" placeholder="Password" />
+                    <input type="text" name="password" id="password" value="" placeholder="Password" required/>
                 </div>
 
                 <div  style=" padding-top: 0" class="col-6 col-12-xsmall">

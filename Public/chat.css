@@ -1,6 +1,3 @@
-@import url(webfonts/fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
-
 html, body {
     margin: 0;
     padding: 0;
@@ -150,16 +147,59 @@ h2 a{
     background-color: rgba(255, 255, 255, 0.1);
 }
 
-#nav ul.links li.active {
+#nav ul.links li.active , #nav ul.icons li.active {
     background-color: #ffffff;
 }
 
-#nav ul.links li.active a {
+#nav ul.links li.active a ,  #nav ul.icons li.active a {
     color: #1e252d;
 }
 
-#nav ul.links li.active a:hover {
+#nav ul.links li.active a:hover ,#nav ul.icons li.active a:hover {
     color: #18bfef !important;
+}
+
+#nav ul.icons {
+    display: flex;
+    -moz-flex-grow: 0;
+    -webkit-flex-grow: 0;
+    -ms-flex-grow: 0;
+    flex-grow: 0;
+    -moz-flex-shrink: 0;
+    -webkit-flex-shrink: 0;
+    -ms-flex-shrink: 0;
+    flex-shrink: 0;
+    margin-bottom: 0;
+    /*font-family: "Source Sans Pro", Helvetica, sans-serif;*/
+    font-family: 'SomeTimeLaterRegular';
+    font-weight: 900;
+    letter-spacing: 0.075em;
+    list-style: none;
+    text-transform: uppercase;
+    padding: 0;
+}
+
+#nav ul.icons li{
+    /*display: inline-block;*/
+    display: block;
+    padding: 0;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+#nav ul.icons li a {
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+    display: block;
+    text-align: center;
+    font-size: 1.1rem;
+    outline: none;
+    cursor: pointer;
+    padding: 0 2rem;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+#nav ul.icons li a:hover {
+    color: inherit !important;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 /* End of Nav */
@@ -243,27 +283,27 @@ ul.actions.special {
 
 
 
-::-webkit-scrollbar {
+#messages::-webkit-scrollbar {
     width: 5px;
     border-radius: 5px;
 }
 
 /* Track */
-::-webkit-scrollbar-track {
+#messages::-webkit-scrollbar-track {
     background: #fafafa;
     border-radius: 10px;
 
 }
 
 /* Handle */
-::-webkit-scrollbar-thumb {
+#messages::-webkit-scrollbar-thumb {
     background: rgba(12, 12, 12, 0.8);
     border-radius: 10px;
 
 }
 
 /* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
+#messages::-webkit-scrollbar-thumb:hover {
     background: #000000;
 }
 
@@ -335,6 +375,7 @@ ul.actions.special {
     box-shadow: 0 15px 15px -5px rgba(0, 0, 0, 0.2);
     border: 2px solid #ddd;
 
+
 }
 #messages{
     flex: 0 0 88%;
@@ -348,16 +389,17 @@ ul.actions.special {
     background-color: #579ffb;
     width: 35%;
     margin-left: 25px;
-    padding: 5px;
     border-radius: 5px;
     color: white;
     overflow: hidden;
-    padding: 15px;
+    padding: 10px;
     border-radius: 15px;
     line-height: 1.2;
     font-size: 0.8rem;
+    word-wrap: break-word;      /* IE 5.5-7 */
+    white-space: -moz-pre-wrap; /* Firefox 1.0-2.0 */
+    white-space: pre-wrap;      /* current browsers */
     max-width: 100%;
-
     /*border: 1px solid black;*/
 }
 

@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Massively by HTML5 UP</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <title>Edit user</title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
-    <link rel="stylesheet" href="/Users1.css" >
+    <link rel="stylesheet" href="/Users1.css">
     <link rel="stylesheet" href="/edit.css">
 
 
@@ -20,7 +20,7 @@
             <li><a href="/">HOME</a></li>
             <li><a href="/users">USERS</a></li>
             <li><a href="/register">REGISTER</a></li>
-            <li ><a href="/login">LOGIN</a></li>
+            <li><a href="/login">LOGIN</a></li>
 
         </ul>
 
@@ -31,29 +31,35 @@
         <!-- Featured Post -->
         <article class="post featured">
             <h2 name="Character_Firstname"><%= user.Character_Firstname %></h2>
-            <a href="#" class="image main"><img name="Character_Image" src="<%= user.Character_Image%>" alt="" width="200" height="300" /></a>
+            <% if (user.Character_Image !== 'undefined') { %>
+                <a class="image main"><img name="Character_Image" src="/images/<%= user.Character_Image %>.jpg" alt=""
+                                           width="200" height="300"/></a>
+            <% } %>
+            <% if (user.Character_Image === 'undefined') { %>
+                <a class="image main"><img name="Character_Image" src="/images/profile.jpg" alt="" width="200"
+                                           height="300"/></a>
+            <% } %>
             <form action="/users/<%= user.id %>" method="post" enctype="multipart/form-data">
                 <header class="major">
                     <span class="date" style=" margin-bottom: 30px;">USER DETAILS</span>
 
                     <table class="customTable">
-
                         <tbody>
-
-
-                        <input class="input"   name="id" type="hidden" value="<%= user.id %>" required>
-
+                        <input class="input" name="id" type="hidden" value="<%= user.id %>" required>
                         <tr>
                             <td class="head"> First name</td>
-                            <td><input class="input" name="Character_Firstname" type="text" value="<%= user.Character_Firstname %>" required></td>
+                            <td><input class="input" name="Character_Firstname" type="text"
+                                       value="<%= user.Character_Firstname %>" required></td>
                         </tr>
                         <tr>
                             <td class="head">Last name</td>
-                            <td><input class="input" name="Character_Lastname" type="text" value="<%= user.Character_Lastname %>" required></td>
+                            <td><input class="input" name="Character_Lastname" type="text"
+                                       value="<%= user.Character_Lastname %>" required></td>
                         </tr>
                         <tr>
                             <td class="head">Nick name</td>
-                            <td><input class="input" name="Character_Nickname" type="text" value="<%= user.Character_Nickname %>" required></td>
+                            <td><input class="input" name="Character_Nickname" type="text"
+                                       value="<%= user.Character_Nickname %>" required></td>
                         </tr>
                         <tr>
                             <td class="head">Email</td>
@@ -61,36 +67,22 @@
                         </tr>
                         <tr>
                             <td class="head">Image</td>
-                            <td> <input class="imm" type="file" name="image" id="image" accept="image/png, image/gif, image/jpeg"  />
-<!--                                 <input type="hidden" name="image" value=" <%= user.Character_Image %>">-->
-
+                            <td><input class="imm" type="file" name="image" id="image"
+                                       accept="image/png, image/gif, image/jpeg"/>
+                                <input type="hidden" name="image1" value="<%= user.Character_Image %>">
                             </td>
                         </tr>
                         </tbody>
                     </table>
-
-
                 </header>
 
                 <ul class="actions special">
-                    <li><input  class="button large" type="submit" value="UPDATE"/></li>
+                    <li><input class="button large" type="submit" value="UPDATE"/></li>
                 </ul>
             </form>
         </article>
     </div>
 </div>
 
-
-<script>
-    /*let fileInp = document.querySelector('[type="file"]');
-
-    fileInp.onchange = function(event) {
-        let [file] = fileInp.files;
-        if (file) {
-            document.getElementById("fileName").innerHTML = file.name
-        }
-    }*/
-
-</script>
 </body>
 </html>

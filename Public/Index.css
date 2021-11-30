@@ -1,6 +1,3 @@
-@import url(webfonts/fontawesome-all.min.css);
-@import url("https://fonts.googleapis.com/css?family=Merriweather:300,700,300italic,700italic|Source+Sans+Pro:900");
-
 html, body {
     margin: 0;
     padding: 0;
@@ -17,18 +14,16 @@ html {
 }
 
 body  {
-    font-family: "Merriweather", Georgia, serif;
+    /*font-family: "Merriweather", Georgia, serif;*/
     font-family: 'SomeTimeLaterRegular';
     font-weight: 300;
     font-size: 2rem;
-    line-height: 2.375;
-    line-height: 1;
+    /*line-height: 2.375;*/
+    /*line-height: 1;*/
     -webkit-text-size-adjust: none;
     background-color: #1e252d;
     color: #212931;
 }
-
-
 /* Basic */
 article, header,  nav, section {
     display: block;
@@ -38,11 +33,9 @@ ul {
     margin: 0 0 2rem 0;
     padding-left: 1rem;
 }
-
 ul li {
     padding-left: 0.5rem;
 }
-
 a {
     border-bottom: dotted 1px;
     text-decoration: none;
@@ -51,10 +44,8 @@ a {
 }
 a:hover {
     border-bottom-color: transparent;
-    border-bottom-color: transparent;
     color: #18bfef !important;
 }
-
 p {
     text-align: justify;
     margin: 0 0 2rem 0;
@@ -62,15 +53,14 @@ p {
     letter-spacing: 2px;
     font-size: 1.2rem;
 }
-
 h2 {
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    /*font-family: "Source Sans Pro", Helvetica, sans-serif;*/
     font-family: 'SomeTimeLaterRegular';
     font-weight: 900;
     line-height: 55px;
     letter-spacing: 0.075em;
     text-transform: uppercase;
-    margin: 0 0 1rem 0;
+    /*margin: 0 0 1rem 0;*/
     font-size: 2rem;
     margin: 0 0 1.5rem 0;
     color: #212931;
@@ -130,7 +120,7 @@ h2 a{
     display: flex;
     flex-grow: 1;
     flex-shrink: 1;
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    /*font-family: "Source Sans Pro", Helvetica, sans-serif;*/
     font-family: 'SomeTimeLaterRegular';
     font-weight: 900;
     letter-spacing: 0.075em;
@@ -171,6 +161,7 @@ h2 a{
 
 /* Icons */
 #nav ul.icons {
+    display: flex;
     -moz-flex-grow: 0;
     -webkit-flex-grow: 0;
     -ms-flex-grow: 0;
@@ -180,7 +171,7 @@ h2 a{
     -ms-flex-shrink: 0;
     flex-shrink: 0;
     margin-bottom: 0;
-    font-family: "Source Sans Pro", Helvetica, sans-serif;
+    /*font-family: "Source Sans Pro", Helvetica, sans-serif;*/
     font-family: 'SomeTimeLaterRegular';
     font-weight: 900;
     letter-spacing: 0.075em;
@@ -190,9 +181,11 @@ h2 a{
 }
 
 #nav ul.icons li{
-    display: inline-block;
+    /*display: inline-block;*/
+    display: block;
     padding: 0;
-
+    margin-right: 0 !important;
+    margin-left: 0 !important;
 }
 #nav ul.icons li a {
     transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
@@ -201,7 +194,13 @@ h2 a{
     font-size: 1.1rem;
     outline: none;
     cursor: pointer;
-    padding: 0 1rem;
+    padding: 0 2rem;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+#nav ul.icons li a:hover {
+    color: inherit !important;
+    background-color: rgba(255, 255, 255, 0.1);
 }
 /* End of Nav */
 
@@ -217,39 +216,42 @@ h2 a{
     z-index: 2;
 }
 
-#main > * {
-    padding: 4rem 4rem 2rem 4rem ;
-    border-top: solid 2px #eeeeee;
-    margin: 0;
+/*#main > * {*/
+/*    !*padding: 4rem 4rem 2rem 4rem ;*!*/
+/*    border-top: solid 6px black ;*/
+/*    margin: 0;*/
+/*    background: #1D7745;*/
+/*}*/
+
+/*#main > *:first-child {*/
+/*    border-top: 0;*/
+/*    background: #7EA8F8;*/
+/*}*/
+
+
+
+#main  .post {
+    padding: 4rem 8rem 6rem 8rem ;
+    /*padding-top: 4rem;*/
 }
 
-#main > *:first-child {
-    border-top: 0;
-}
-
-
-
-#main > .post {
-    padding: 8rem 8rem 6rem 8rem ;
-    padding-top: 4rem;
-}
-
-#main > .post header.major > .date {
+#main .date {
     margin-top: -2rem;
     margin-bottom: 30px;
+    letter-spacing: 1px
 }
 
-#main > .post header.major > h1, #main > .post header.major h2 {
+#main  .post header.major h2 {
     font-size: 3rem;
     line-height: 1.1;
     margin: 0 0 2rem 0;
 }
 
-#main > .post.featured {
+#main  .post.featured {
     text-align: center;
 }
 
-#main > .posts {
+#main  .posts {
     display: flex;
     -moz-flex-wrap: wrap;
     -webkit-flex-wrap: wrap;
@@ -261,7 +263,7 @@ h2 a{
     padding: 0;
 }
 
-#main > .posts > * {
+#main  .posts > * {
     -moz-flex-shrink: 1;
     -webkit-flex-shrink: 1;
     -ms-flex-shrink: 1;
@@ -272,16 +274,16 @@ h2 a{
     flex-grow: 0;
 }
 
-#main > .posts > * {
-    width: 50%;
-}
+/*#main  .posts > * {*/
+/*    width: 50%;*/
+/*}*/
 
-#main > .posts > * {
-    padding: 4rem;
-    width: 50%;
-}
+/*#main  .posts > * {*/
+/*    padding: 4rem;*/
+/*    width: 50%;*/
+/*}*/
 
-#main > .posts > article {
+#main   article {
     border-color: #eeeeee;
     border-left-width: 2px;
     border-style: solid;
@@ -289,17 +291,17 @@ h2 a{
     text-align: center;
 }
 
-#main > .posts > article > :last-child {
-    margin-bottom: 0;
-}
+/*#main > .posts > article > :last-child {*/
+/*    margin-bottom: 0;*/
+/*}*/
 
-#main > .posts > article:nth-child(2n - 1) {
-    border-left-width: 0;
-}
+/*#main > .posts > article:nth-child(2n - 1) {*/
+/*    border-left-width: 0;*/
+/*}*/
 
-#main > .posts > article:nth-child(-n + 2) {
-    border-top-width: 0;
-}
+/*#main > .posts > article:nth-child(-n + 2) {*/
+/*    border-top-width: 0;*/
+/*}*/
 
 /*End of main*/
 
@@ -506,70 +508,21 @@ ul.actions.fit.stacked {
 
 
 /* Image */
-
 .image {
     border: 0;
-    display: inline-block;
     position: relative;
-}
-
-.image img {
-    display: block;
-}
-
-.image.left, .image.right {
-    max-width: 40%;
-}
-
-.image.left img, .image.right img {
-    width: 100%;
-}
-
-.image.left {
-    float: left;
-    margin: 0 2rem 2rem 0;
-    top: 0.75rem;
-}
-
-.image.right {
-    float: right;
-    margin: 0 0 2rem 2rem;
-    top: 0.75rem;
-}
-
-.image.fit {
-    display: block;
-    margin: 2.5rem 0;
-    width: 100%;
-}
-
-.image.fit:first-child {
-    margin-top: 0;
-}
-
-.image.fit img {
-    width: 100%;
-}
-
-.image.main {
     display: block;
     margin: 4rem 0;
     width: 100%;
 }
 
-.image.main:first-child {
-    margin-top: 0;
-}
-
-.image.main img {
-    width: 100%;
-}
-
-
 a.image {
     overflow: hidden;
 }
 a.image img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
     -moz-transition: -moz-transform 0.2s ease-out;
     -webkit-transition: -webkit-transform 0.2s ease-out;
     -ms-transition: -ms-transform 0.2s ease-out;

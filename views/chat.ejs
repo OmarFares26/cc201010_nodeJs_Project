@@ -3,125 +3,70 @@
 
 <head>
     <title>Chat</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
-    <link rel="stylesheet" href="/chat.css" >
+    <link rel="stylesheet" href="/chat.css">
     <!--<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>-->
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script>
+        //Between those script tags are the client side part for websockets "Chat view"
+
         //connect to ws server
-        //const ws = new WebSocket('ws://localhost:8080');
-        const ws = new WebSocket('ws://192.168.1.4:8080');
-        //lecture 8
+        const ws = new WebSocket('ws://192.168.1.5:8080');
+        //open the connection to that service
         ws.onopen = function () {
             console.log('websocket is connected ...')
+            //send „connected“ to the server
             ws.send(JSON.stringify({
                 room: '',
                 message: 'connected',
             }))
         }
-        //lecture 6
-        /* ws.onopen = function () {
-             console.log('Websocket is connected ...')
-             ws.send('connected')
-         }*/
-        //lecture 8
+
+        //on message refer to"when a message comes in "
         ws.onmessage = function (ev) {
             console.log(ev)
             addTextMessage(JSON.parse(ev.data));
         }
+
         function sendMyMessage() {
             let room = document.getElementById("Room").value;
-            let text = document.getElementById("text").value;
-            if(room === ''){
+            let text = document.getElementById("text").value;//get text from input filed
+            if (room === '') {
                 alert('please select room')
-            }else if(text === ''){
+            } else if (text === '') {
                 alert('type in a message')
-            }
-            else{
+            } else {
                 let message = {
                     room: room,
-                    message: text,
+                    message: "<%= user %> : " + text,
                 }
                 ws.send(JSON.stringify(message))
+                document.getElementById("text").value = '';
             }
 
         }
 
+        //add message sent
         function addTextMessage(message) {
             let tag = document.createElement("p");
-            tag.innerHTML = message.message;
+            tag.innerHTML = message.message;//display the text that the user sent
             document.getElementById("messages").appendChild(tag);
         }
+
+        //Join desired room and showing the selected room
         function join() {
             let text = document.getElementById("Room").value;
-            if(text === ''){
+            if (text === '') {
                 alert('Please select room name')
-            }else{
+            } else {
                 ws.send(JSON.stringify({joinRoom: text}));
                 document.getElementById('SelectedRoom').style.display = 'block';
                 document.getElementById('roomName').innerHTML = text;
+
             }
         }
-
-
-        //lecture 6
-        /*ws.onmessage = function (ev) {
-           // console.log(ev);
-            addTextMessage(ev.data);
-        }*/
-
-        /* let userName = '';
-
-
-         function saveUser(){
-             userName =  document.getElementById("userName").value;
-             console.log(userName);
-             //sendMyMessage();
-             document.getElementById("userName").value = "" ;
-
-         }
-
-         function sendMyMessage() {
-             let room = document.getElementById("room").value;
-             let text = document.getElementById("text").value;
-             let message = {
-                 room: room,
-                 message: userName +":"+ text,
-             }
-             ws.send(JSON.stringify(message))
-         }
-         //lecture 6
-        /* function sendMyMessage() {
-             if(userName == ''){
-                 alert("please enter your name first");
-             }else{
-             console.log(userName);
-             let text = document.getElementById("text").value;
-             ws.send(userName + " : " +text);
-             document.getElementById("text").value = "";
-             }
-         }*/
-
-        /*   function addTextMessage(message) {
-               let tag = document.createElement("p");
-               tag.innerHTML = message.message;
-               document.getElementById("messages").appendChild(tag);
-           }
-           function join() {
-               let text = document.getElementById("room").value;
-               ws.send(JSON.stringify({joinRoom: text}));
-           }*/
-
-        //lecture 6
-        /*function addTextMessage(message){
-            let tag = document.createElement("p");
-            let text = document.createTextNode(message);
-            tag.appendChild(text);
-            let element = document.getElementById("messages");
-            element.appendChild(tag);
-        }*/
-
 
     </script>
 
@@ -133,19 +78,22 @@
     <nav id="nav">
         <ul class="links">
             <li><a href="/">HOME</a></li>
-            <li ><a href="/users">USERS</a></li>
+            <li><a href="/users">USERS</a></li>
             <li><a href="/register">REGISTER</a></li>
             <li><a href="/login">LOGIN</a></li>
         </ul>
 
+        <ul class="icons">
+            <li class="active"><a>Chat<i class='far'>&#xf086;</i></a></li>
+            <li><a href="/logout">logout</a></li>
+        </ul>
     </nav>
 
     <div id="main">
-
-        <h2>Chat view</h2>
+        <h2>Chat view - <%= user %></h2>
         <div id="nameInput">
             <input id="Room" placeholder="Enter your diserd room" type="text" value="">
-            <button  onclick="join()">Join room</button>
+            <button onclick="join()">Join room</button>
             <span id="SelectedRoom" style="display: none">Room:<span id="roomName"></span></span>
         </div>
 
@@ -156,16 +104,13 @@
 
             <div id="messageBar">
                 <input id="text" type="text" placeholder="Write your message">
-                <button  onclick="sendMyMessage()">Send</button>
+                <button onclick="sendMyMessage()">Send</button>
             </div>
         </div>
 
 
-
     </div>
 </div>
-
-
 
 
 </body>

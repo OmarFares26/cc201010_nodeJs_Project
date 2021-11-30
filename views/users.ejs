@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
     <link rel="stylesheet" media="screen" href="https://fontlibrary.org//face/some-time-later" type="text/css"/>
     <link rel="stylesheet" href="/Users1.css">
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     <script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
 
 </head>
@@ -20,6 +21,7 @@
             <li><a href="/login">LOGIN</a></li>
         </ul>
         <ul class="icons">
+            <li><a href="/chat">Chat<i class='far'>&#xf086;</i></a></li>
             <li><a href="/logout">LogOut</a></li>
         </ul>
 
@@ -29,10 +31,7 @@
         <!-- Featured Post -->
         <article class="post featured">
             <header class="major">
-
-                <h2><a href="#">SpongeBob SquarePants  <br/>
-                        </a></h2>
-
+                <h2>SpongeBob SquarePants<br/></h2>
                 <p class="story"> SpongeBob SquarePants is an American cartoon series<br/>
                     that was developed in 1998 by the American marine biologist<br/>
                     and trick film producer Stephen Hillenburg <br>
@@ -42,28 +41,46 @@
             </header>
             <ul class="actions special">
                 <li><a href="#users" class="scrollLink">VIEW USERS</a></li>
-                <li ><a href="/register" class="scrollLink">INSERT USER</a></li>
             </ul>
         </article>
 
         <!-- Posts -->
         <section class="posts" id="users">
             <% for (let i = 0; i < users.length; i++) { %>
+                <% if (users[i].Character_Image !== 'undefined') { %>
                 <article>
                     <header>
                         <span class="date"><%= users[i].id %></span>
                         <h2><a href="/users/<%= users[i].id %>"><%= users[i].Character_Firstname %></a></h2>
                     </header>
-                    <a href="#" class="image fit"><img src="<%= users[i].Character_Image%>" alt="" width="445.6" height="271"/></a>
+                    <a class="image fit"><img src="/images/<%= users[i].Character_Image%>.jpg" alt="" width="445.6" height="271"/></a>
                     <ul class="actions special">
                         <li><a href="/users/<%= users[i].id %>" class="button">View User</a></li>
                         <form class="form-delete" method="post" action="users/<%= users[i].id%>/delete">
                             <li>
                                 <input onclick="return confirm('Are you sure you want to delete <%= users[i].Character_Firstname%>')"  class="input-delete" value="Delete User" type="submit"></li>
                         </form>
-
                     </ul>
                 </article>
+                    <% } %>
+
+                    <% if (users[i].Character_Image === 'undefined') { %>
+                        <article>
+                            <header>
+                                <span class="date"><%= users[i].id %></span>
+                                <h2><a href="/users/<%= users[i].id %>"><%= users[i].Character_Firstname %></a></h2>
+                            </header>
+                            <a  class="image fit"><img src="/images/profile.jpg" alt="" width="445.6" height="271"/></a>
+                            <ul class="actions special">
+                                <li><a href="/users/<%= users[i].id %>" class="button">View User</a></li>
+                                <form class="form-delete" method="post" action="users/<%= users[i].id%>/delete">
+                                    <li>
+                                        <input onclick="return confirm('Are you sure you want to delete <%= users[i].Character_Firstname%>')"  class="input-delete" value="Delete User" type="submit"></li>
+                                </form>
+                            </ul>
+                        </article>
+                    <% } %>
+
             <% } %>
         </section>
 
