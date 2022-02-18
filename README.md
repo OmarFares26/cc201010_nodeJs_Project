@@ -5,11 +5,6 @@ their friends . ofcourse we can't say that this is a fully functional platform, 
 to be improved later and be a nice and simple platform.
 
 
-
--Database credentials"You can also check them in secrets.js"
-Username:cc201013
-Password:wa>Gd&M5
-
 - Users credentials
   We have set a fixed theme for our project to maintain consistency, Our theme is mainly about the SpongeBob tv series and
   all our characters are the series character and also we used a different font style which will
@@ -57,11 +52,6 @@ it what your code does if you read it in one year
 14- Only administrators can view all user data
 15- Everything was submitted correctly (no node_modules, easy but detailed enough description
 for the lecturer how to start the project and test it, etc)
-
-What didn't we manage to do----
-1-JWT passed in the HTTP header and not in cookies
-
-
 
 
 How to start the Project :
